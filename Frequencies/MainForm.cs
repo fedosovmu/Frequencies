@@ -44,7 +44,7 @@ namespace Frequencies
             Frequencies = new double[CheckBoxes.Length];
             for (int i = 0; i < Frequencies.Length; i++)
             {
-                Frequencies[i] = Math.PI * 2 + (Math.PI / 6.0 * i);
+                Frequencies[i] = Math.PI * 2 + (Math.PI / 6 * i);
             }
         }
 
@@ -60,7 +60,8 @@ namespace Frequencies
         private void DrawСoordinatesGrid()
         {           
             Pen pen = new Pen(Brushes.Black);
-            G.DrawLine(pen, 0, pictureBox.Size.Height / 2, pictureBox.Size.Width, pictureBox.Size.Height / 2);
+            G.DrawLine(pen, 0, pictureBox.Height / 2, pictureBox.Width, pictureBox.Height / 2);
+            G.DrawLine(pen, pictureBox.Width / 2, 0, pictureBox.Width / 2, pictureBox.Height);
         }
 
 
@@ -78,7 +79,7 @@ namespace Frequencies
                 {
                     if (CheckBoxes[i].Checked)
                     {
-                        y += (int) (Math.Sin((pictureBox.Width / 2 + x) / (Frequencies[i] * (25.0 / trackBar.Value))) * 50);
+                        y += (int) (Math.Sin((x - (pictureBox.Width / 2)) / (Frequencies[i] * (25.0 / trackBar.Value))) * 50);
                     }
                 }
                 //G.FillRectangle(Brushes.Red, x, y, 1, 1);

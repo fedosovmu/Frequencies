@@ -333,12 +333,12 @@
             // 
             this.trackBar.LargeChange = 1;
             this.trackBar.Location = new System.Drawing.Point(109, 433);
-            this.trackBar.Maximum = 30;
+            this.trackBar.Maximum = 70;
             this.trackBar.Minimum = 1;
             this.trackBar.Name = "trackBar";
             this.trackBar.Size = new System.Drawing.Size(781, 45);
             this.trackBar.TabIndex = 27;
-            this.trackBar.Value = 5;
+            this.trackBar.Value = 30;
             // 
             // label3
             // 
