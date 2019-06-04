@@ -22,27 +22,29 @@ namespace Frequencies
         {
             InitializeComponent();
 
-            DrawArea = new Bitmap(MainPictureBox.Size.Width, MainPictureBox.Size.Height);
-            MainPictureBox.Image = DrawArea;
+            DrawArea = new Bitmap(pictureBox.Size.Width, pictureBox.Size.Height);
+            pictureBox.Image = DrawArea;
             G = Graphics.FromImage(DrawArea);
-          
-
+            
             CheckBoxes = new CheckBox[] 
             {
                 checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6,
-                checkBox7, checkBox8, checkBox9, checkBox10, checkBox11, checkBox12
+                checkBox7, checkBox8, checkBox9, checkBox10, checkBox11, checkBox12,
+                checkBox13, checkBox14, checkBox15, checkBox16, checkBox17, checkBox18,
+                checkBox19, checkBox20, checkBox21, checkBox22, checkBox23, checkBox24
             };
 
+            trackBar.ValueChanged += (s, e) => UpdatePictureBox();
             foreach (var box in CheckBoxes)
             {
                 box.CheckedChanged += (s, e) => UpdatePictureBox();
-            }
+            }           
 
 
-            Frequencies = new double[12];
+            Frequencies = new double[CheckBoxes.Length];
             for (int i = 0; i < Frequencies.Length; i++)
             {
-                Frequencies[i] = Math.PI * 2 + Math.PI / 6 * i;
+                Frequencies[i] = Math.PI * 2 + (Math.PI / 6.0 * i);
             }
         }
 
@@ -58,27 +60,32 @@ namespace Frequencies
         private void DrawСoordinatesGrid()
         {           
             Pen pen = new Pen(Brushes.Black);
-            G.DrawLine(pen, 0, MainPictureBox.Size.Height / 2, MainPictureBox.Size.Width, MainPictureBox.Size.Height / 2);
+            G.DrawLine(pen, 0, pictureBox.Size.Height / 2, pictureBox.Size.Width, pictureBox.Size.Height / 2);
         }
 
 
 
         private void DrawFrequencies()
         {
-            //Pen pen = new Pen(Brushes.Red);
+            Pen pen = new Pen(Brushes.Red);
+            int? lastY = null;
 
-            for (int x = 0; x < MainPictureBox.Width; x++)
+            for (int x = 0; x < pictureBox.Width; x++)
             {
-                int y = MainPictureBox.Height / 2;
+                int y = pictureBox.Height / 2;
 
                 for (int i = 0; i < CheckBoxes.Length; i++)
                 {
                     if (CheckBoxes[i].Checked)
                     {
-                        y += (int) (Math.Sin((MainPictureBox.Width / 2 + x) / (Frequencies[i] * 5)) * 50);
+                        y += (int) (Math.Sin((pictureBox.Width / 2 + x) / (Frequencies[i] * (25.0 / trackBar.Value))) * 50);
                     }
                 }
-                G.FillRectangle(Brushes.Red, x, y, 1, 1);
+                //G.FillRectangle(Brushes.Red, x, y, 1, 1);
+
+                if (lastY == null) lastY = y;
+                G.DrawLine(pen, x - 1, (float)lastY, x, y);
+                lastY = y;
             }         
         }
 
@@ -89,7 +96,7 @@ namespace Frequencies
             G.Clear(Color.White);
             DrawСoordinatesGrid();
             DrawFrequencies();
-            MainPictureBox.Refresh();
+            pictureBox.Refresh();
         }
     }
 }

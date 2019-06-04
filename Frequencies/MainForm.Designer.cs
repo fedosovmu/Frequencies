@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainPictureBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -55,16 +55,19 @@
             this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
+            this.trackBar = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.SuspendLayout();
             // 
-            // MainPictureBox
+            // pictureBox
             // 
-            this.MainPictureBox.Location = new System.Drawing.Point(26, 24);
-            this.MainPictureBox.Name = "MainPictureBox";
-            this.MainPictureBox.Size = new System.Drawing.Size(864, 403);
-            this.MainPictureBox.TabIndex = 0;
-            this.MainPictureBox.TabStop = false;
+            this.pictureBox.Location = new System.Drawing.Point(26, 24);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(864, 403);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
             // 
             // checkBox1
             // 
@@ -326,11 +329,34 @@
             this.checkBox13.Text = "C (До)";
             this.checkBox13.UseVisualStyleBackColor = true;
             // 
+            // trackBar
+            // 
+            this.trackBar.LargeChange = 1;
+            this.trackBar.Location = new System.Drawing.Point(109, 433);
+            this.trackBar.Maximum = 30;
+            this.trackBar.Minimum = 1;
+            this.trackBar.Name = "trackBar";
+            this.trackBar.Size = new System.Drawing.Size(781, 45);
+            this.trackBar.TabIndex = 27;
+            this.trackBar.Value = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(23, 443);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Масштаб";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 462);
+            this.ClientSize = new System.Drawing.Size(1106, 483);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.trackBar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBox24);
             this.Controls.Add(this.checkBox23);
@@ -357,12 +383,13 @@
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.MainPictureBox);
+            this.Controls.Add(this.pictureBox);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form";
             this.Shown += new System.EventHandler(this.MainForm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,7 +397,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox MainPictureBox;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
@@ -397,6 +424,8 @@
         private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.CheckBox checkBox14;
         private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.TrackBar trackBar;
+        private System.Windows.Forms.Label label3;
     }
 }
 
