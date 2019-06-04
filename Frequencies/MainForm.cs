@@ -25,7 +25,8 @@ namespace Frequencies
             DrawArea = new Bitmap(pictureBox.Size.Width, pictureBox.Size.Height);
             pictureBox.Image = DrawArea;
             G = Graphics.FromImage(DrawArea);
-            
+
+            checkBox1.Checked = true;
             CheckBoxes = new CheckBox[] 
             {
                 checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6,
